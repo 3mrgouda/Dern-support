@@ -2,12 +2,13 @@ import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import cors from "cors";
-
 import path from "path";
 import { fileURLToPath } from "url";
 
 import users from "./routes/users.js";
-
+import articles from "./routes/articles.js";
+import services from "./routes/services.js";
+import products from "./routes/products.js"; // Import the products routes
 import { connectDB } from "./config/db.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +21,7 @@ dotenv.config({
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middlewares
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
@@ -28,6 +29,9 @@ app.use(express.static(path.join(__dirname, "./client/dist")));
 
 // Routes
 app.use("/api/v1/users", users);
+app.use("/api/v1/articles", articles);
+app.use("/api/v1/services", services);
+app.use("/api/v1/products", products); // Add the products routes
 
 // Fallback for SPA
 app.get("*", (req, res) => {
