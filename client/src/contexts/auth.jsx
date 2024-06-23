@@ -55,6 +55,7 @@ export const AuthProvider = ({ children }) => {
   const logoutUser = async () => {
     setUser(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("Email");
     toast.success("Logout successful!");
   };
 

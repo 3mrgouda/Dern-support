@@ -21,11 +21,11 @@ export default function Header() {
       title: "Articles",
       url: "/articles",
     },
-    // {
-    //   id: 4,
-    //   title: "Contact",
-    //   url: "/contact",
-    // },
+    {
+      id: 4,
+      title: "Services",
+      url: "/services",
+    },
   ];
   const { user, logoutUser } = useAuth();
 

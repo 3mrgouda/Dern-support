@@ -9,6 +9,7 @@ export default function Register() {
     e.preventDefault();
     const formData = new FormData(registerReference.current); // Corrected the spelling of 'formData'
     const data = Object.fromEntries(formData);
+    localStorage.setItem("Email", `${data.email}`);
     registerUser(data);
   };
 

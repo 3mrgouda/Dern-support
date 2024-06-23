@@ -12,11 +12,13 @@ export const getAllServices = async (req, res) => {
 
 // Create a new service
 export const createService = async (req, res) => {
-  const { name, description, img, type } = req.body;
+  const { name, description, img, price, type } = req.body;
   const service = new Service({
     name,
     description,
     img,
+    price,
+    rate,
     type,
   });
 
@@ -43,7 +45,7 @@ export const getServiceById = async (req, res) => {
 
 // Update a service
 export const updateService = async (req, res) => {
-  const { name, description, img, type } = req.body;
+  const { name, description, img, price, rate, type } = req.body;
   try {
     const service = await Service.findById(req.params.id);
     if (!service) {
@@ -53,6 +55,8 @@ export const updateService = async (req, res) => {
     if (name) service.name = name;
     if (description) service.description = description;
     if (img) service.img = img;
+    if (price) service.price = price;
+    if (rate) service.rate = rate;
     if (type) service.type = type;
 
     const updatedService = await service.save();

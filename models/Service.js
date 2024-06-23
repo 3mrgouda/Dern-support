@@ -13,9 +13,12 @@ const ServiceSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  type: {
+  price: {
     type: String,
-    enum: ["hardware", "software"],
+    required: true,
+  },
+  rate: {
+    type: Number,
     required: true,
   },
   createdAt: {

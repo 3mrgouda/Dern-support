@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loading from "../../components/Loading";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -14,29 +16,23 @@ export default function Products() {
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
       }
     }
     fetchProducts();
   }, []);
-
-  // Get the latest 5 products
-  const latestProducts = products.slice(-3).reverse();
-
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="container mx-auto px-4 my-28">
       <h1 className="text-4xl font-bold text-center mb-12">
-        Latest
-        <span className="text-red-600 border-b-2 border-black">
-          Products
-        </span>{" "}
-        <span className="text-sm text-gray-500">
-          <Link className="hover:text-red-600" to={"/products"}>
-            Get more...
-          </Link>
-        </span>
+        Our
+        <span className="text-red-600 border-b-2 border-black">Products</span>
       </h1>
       <div className="cards flex flex-wrap gap-8 justify-center w-full">
-        {latestProducts.map((product) => (
+        {products.map((product) => (
           <div
             key={product._id}
             className="product-card max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transform transition duration-500 hover:shadow-2xl w-full"

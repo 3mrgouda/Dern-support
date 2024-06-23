@@ -6,9 +6,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import users from "./routes/users.js";
-import articles from "./routes/articles.js";
-import services from "./routes/services.js";
-import products from "./routes/products.js"; // Import the products routes
+import articles from "./routes/articleRoute.js";
+import services from "./routes/serviceRoute.js";
+import products from "./routes/productRoute.js";
+import uploadRoute from "./routes/uploadRoute.js";
 import { connectDB } from "./config/db.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -26,12 +27,14 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "./client/dist")));
+app.use("/uploads", express.static("uploads")); // Serve uploaded files
 
 // Routes
 app.use("/api/v1/users", users);
 app.use("/api/v1/articles", articles);
 app.use("/api/v1/services", services);
-app.use("/api/v1/products", products); // Add the products routes
+app.use("/api/v1/products", products);
+app.use("/api/v1", uploadRoute); // Add the upload route
 
 // Fallback for SPA
 app.get("*", (req, res) => {

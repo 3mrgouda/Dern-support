@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/auth";
 
@@ -10,6 +10,7 @@ export default function Login() {
     e.preventDefault();
     const formData = new FormData(loginReference.current);
     const data = Object.fromEntries(formData);
+    localStorage.setItem("Email", `${data.email}`);
     loginUser(data);
   };
 

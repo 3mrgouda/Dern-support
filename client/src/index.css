@@ -3,22 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes marquee {
-  from {
-    transform: translateX(100%);
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
-
-  to {
-    transform: translateX(-100%);
+  
+  .spinner-border {
+    border-color: currentColor transparent transparent transparent;
+    border-style: solid;
+    border-width: 0.25rem;
+    animation: spin 1s linear infinite;
   }
-}
-
-
-
-.animate-marquee {
-  animation: marquee 10s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
+  

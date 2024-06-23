@@ -12,11 +12,12 @@ export const getAllProducts = async (req, res) => {
 
 // Create a new product
 export const createProduct = async (req, res) => {
-  const { name, description, img, quantity } = req.body;
+  const { name, description, img, price , quantity } = req.body;
   const product = new Product({
     name,
     description,
     img,
+    price,
     quantity
   });
 
@@ -43,7 +44,7 @@ export const getProductById = async (req, res) => {
 
 // Update a product
 export const updateProduct = async (req, res) => {
-  const { name, description, img, quantity } = req.body;
+  const { name, description, img, price , quantity } = req.body;
   try {
     const product = await Product.findById(req.params.id);
     if (!product) {
@@ -53,6 +54,7 @@ export const updateProduct = async (req, res) => {
     if (name) product.name = name;
     if (description) product.description = description;
     if (img) product.img = img;
+    if (price) product.price = price;
     if (quantity) product.quantity = quantity;
 
     const updatedProduct = await product.save();
