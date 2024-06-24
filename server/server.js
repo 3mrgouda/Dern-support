@@ -2,8 +2,6 @@ import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import cors from "cors";
-import path from "path";
-import { fileURLToPath } from "url";
 
 import users from "./routes/users.js";
 import articles from "./routes/articleRoute.js";
@@ -11,9 +9,6 @@ import services from "./routes/serviceRoute.js";
 import products from "./routes/productRoute.js";
 import uploadRoute from "./routes/uploadRoute.js";
 import { connectDB } from "./config/db.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 dotenv.config({
   path: "./config/.env",
@@ -26,8 +21,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(express.static(path.join(__dirname, "./client/dist")));
 app.use("/uploads", express.static("uploads"));
+
 // Routes
 app.use("/api/v1/users", users);
 app.use("/api/v1/articles", articles);
