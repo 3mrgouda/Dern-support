@@ -24,7 +24,7 @@ export default function Articles() {
     <div className="container mx-auto px-4 my-28">
       <h1 className="text-4xl font-bold text-center mb-12">
         Latest
-        <span className="text-red-600 border-b-2 border-black">Articles</span>
+        <span className="text-red-600 border-b-2 border-black"> Articles</span>
       </h1>
       <div className="cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center w-full">
         {latestArticles.map((article) => (

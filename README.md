@@ -1,10 +1,10 @@
 ### Dern-Support Project README
 
-Welcome to the Dern-Support project repository. This software solution is designed for Dern-Support, a small IT technical support company that specializes in repairing computer systems for businesses and individual customers. The system aims to support the company’s operations by providing comprehensive functionalities to manage customer accounts, support requests, repairs, and more.
+Welcome to the Dern-Support project repository. This software solution is designed for Dern-Support, a small IT technical support company specializing in repairing computer systems for businesses and individual customers. The system aims to support the company’s operations by providing comprehensive functionalities to manage customer accounts, support requests, repairs, and more.
 
 ### Project Overview
 
-Dern-Support provides on-site support for business customers and offers repair services for individual customers who can drop off their devices or arrange for courier delivery. The software solution aims to streamline these processes and enhance operational efficiency.
+Dern-Support offers a comprehensive suite of services tailored to meet the needs of both business and individual customers. For businesses, we provide on-site support to ensure minimal downtime and efficient problem resolution. Individual customers can benefit from our repair services by either dropping off their devices or arranging for courier delivery. Our software solution is designed to streamline these processes, improving operational efficiency and customer satisfaction.
 
 ### Features
 

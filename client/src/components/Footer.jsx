@@ -56,58 +56,63 @@ function Footer() {
   ];
   return (
     <footer className="border-t-2 border-black mt-10">
-      <div className="container flex justify-around items-center px-6 py-10 mx-auto">
-        <div data-aos="fade-up">
-          <p className="font-semibold text-black">Quick Link</p>
-          <div className="flex flex-col items-start mt-2 space-y-2">
-            {links.map((link) => (
-              <Link
-                key={link.id}
-                to={link.url}
-                className="transition-colors duration-300 text-gray-700 dark:hover:text-red-400 hover:underline hover:cursor-pointer hover:text-black"
-              >
-                {link.title}
-              </Link>
-            ))}
+      <div className="container flex flex-col sm:flex-row justify-around items-center px-6 py-10 gap-5 mx-auto">
+        <div className="flex justify-between gap-6 lg:space-x-40">
+          <div className="pages">
+            <p className="font-semibold text-black">Quick Link</p>
+            <div className="flex flex-col items-start mt-2 space-y-2">
+              {links.map((link) => (
+                <Link
+                  key={link.id}
+                  to={link.url}
+                  className="transition-colors duration-300 text-gray-700 dark:hover:text-red-400 hover:underline hover:cursor-pointer hover:text-black"
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="problems">
+            <p className="font-semibold text-black">Need Help</p>
+            <div className="flex flex-col items-start mt-5 space-y-2">
+              {articles.map((article) => (
+                <Link
+                  to={article.url}
+                  key={article.id}
+                  className="group transition-colors duration-300 text-gray-700 hover:underline hover:cursor-pointer hover:text-black"
+                >
+                  {article.title}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-        <div data-aos="fade-up">
-          <p className="font-semibold text-black">Need Help</p>
-          <div className="flex flex-col items-start mt-5 space-y-2">
-            {articles.map((article) => (
-              <Link
-                to={article.url}
-                key={article.id}
-                className="group transition-colors duration-300 text-gray-700 hover:underline hover:cursor-pointer hover:text-black"
-              >
-                Read about <span className="text-red-600 group-hover:text-black  hover:text-black">{article.title}</span> problems
-              </Link>
-            ))}
+
+        <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
+          <div className="flex gap-4 hover:cursor-pointer">
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/amrmohamedgouda/"
+            >
+              <FaLinkedin className="w-10 h-10 text-black" />
+            </a>
+            <a target="_blank" href="https://github.com/3mrgouda">
+              <FaGithub className="w-10 h-10 text-black" />
+            </a>
           </div>
+          <p className="font-sans text-start md:text-center md:text-lg md:p-4 text-black">
+            <FaCopyright className="inline-block" /> 2023
+            <a
+              className="border-b border-black md:text-xl"
+              target="_blank"
+              href="https://www.linkedin.com/in/amrmohamedgouda/"
+            >
+              <span className="font-bold text-red-600">Dern</span>
+              Support
+            </a>
+            Inc. All rights reserved.
+          </p>
         </div>
-        <div className="flex gap-4 hover:cursor-pointer">
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/in/amrmohamedgouda/"
-          >
-            <FaLinkedin className="w-10 h-10 text-black" />
-          </a>
-          <a target="_blank" href="https://github.com/3mrgouda">
-            <FaGithub className="w-10 h-10 text-black" />
-          </a>
-        </div>
-        <p className="font-sans py-8 text-start md:text-center md:text-lg md:p-4 text-black">
-          <FaCopyright className="inline-block" /> 2023{" "}
-          <a
-            className="border-b border-black md:text-xl"
-            target="_blank"
-            href="https://www.linkedin.com/in/amrmohamedgouda/"
-          >
-            <span className="font-bold text-red-600">Dern</span>
-            Support
-          </a>{" "}
-          Inc. All rights reserved.
-        </p>
       </div>
     </footer>
   );

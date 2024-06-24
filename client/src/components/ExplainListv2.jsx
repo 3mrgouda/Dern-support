@@ -7,13 +7,6 @@ import Explainv2 from "./Explainv2";
 export default function ExplainListv2() {
   return (
     <div className="container mx-auto px-4 my-28">
-      <h1 className="text-4xl font-bold text-center mb-12">
-        Welcome to
-        <span className="text-red-600 border-b-2 border-black">
-          Dern-Support
-        </span>
-      </h1>
-
       <Explainv2
         id="1"
         title="How does Dern-Support manage network security?"

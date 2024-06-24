@@ -19,21 +19,13 @@ export default function Products() {
     fetchProducts();
   }, []);
 
-  // Get the latest 5 products
   const latestProducts = products.slice(-3).reverse();
 
   return (
     <div className="container mx-auto px-4 my-28">
       <h1 className="text-4xl font-bold text-center mb-12">
         Latest
-        <span className="text-red-600 border-b-2 border-black">
-          Products
-        </span>{" "}
-        <span className="text-sm text-gray-500">
-          <Link className="hover:text-red-600" to={"/products"}>
-            Get more...
-          </Link>
-        </span>
+        <span className="text-red-600 border-b-2 border-black">Products</span>
       </h1>
       <div className="cards flex flex-wrap gap-8 justify-center w-full">
         {latestProducts.map((product) => (

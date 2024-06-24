@@ -27,8 +27,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "./client/dist")));
-app.use("/uploads", express.static("uploads")); // Serve uploaded files
-
+app.use("/uploads", express.static("uploads"));
 // Routes
 app.use("/api/v1/users", users);
 app.use("/api/v1/articles", articles);
@@ -38,7 +37,7 @@ app.use("/api/v1", uploadRoute); // Add the upload route
 
 // Fallback for SPA
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/dist/index.html"));
+  res.send("hello! in DernSupport Server");
 });
 
 // Start server after connecting to DB
